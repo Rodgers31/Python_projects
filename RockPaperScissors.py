@@ -26,21 +26,28 @@ scissors = '''
 '''
 
 #Write your code below this line 👇
-import random
 
+import random
+game_images = [rock, paper, scissors]
 user_pick = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
 
-computer_pick = random.randint(0,2)
-
-print(f"Computer chose {computer_pick}")
-
-if user_pick == 0 and computer_pick == 2:
-  print("you win!")
-if user_pick == 0  and computer_pick == 2:
-  print("You win")
-elif computer_pick > user_pick:
-  print("You lose")
-elif computer_pick == user_pick:
-  print("It's a draw")
-else:
+if user_pick >= 3 or user_pick < 0:
   print('You typed an invalid number, you loose!')
+
+else:
+  print(game_images[user_pick])
+  computer_pick = random.randint(0,2)
+
+  print(f"Computer chose:")
+  print(game_images[computer_pick])
+
+  if user_pick == 0 and computer_pick == 2:
+    print("You win!")
+  elif user_pick == 0  and computer_pick == 2:
+    print("You win")
+  elif computer_pick > user_pick:
+    print("You lose")
+  elif user_pick > computer_pick:
+    print("You win!")
+  elif computer_pick == user_pick:
+    print("It's a draw")
